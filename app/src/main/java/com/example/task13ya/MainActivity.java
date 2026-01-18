@@ -1,4 +1,4 @@
-package com.example.task13_ya;
+package com.example.task13ya;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -18,33 +18,42 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.task13ya.R;
-
 /**
- * @author Darya
+ * @author Shelly
  * @version 1.1
  * @since 18/01/2026
  *
- * This class handles the municipal event planning logic using custom alert dialogs.
+ * This activity serves as the main controller for the municipal event planning application.
+ * It manages multiple custom alert dialogs to gather user input regarding event types,
+ * equipment, ratings, and system resets.
  */
-public class MainActivity extends AppCompatActivity
-{
+public class MainActivity extends AppCompatActivity {
+
     private TextView textEventSummary;
     private ConstraintLayout parentLayout;
     private Button btnSelectType, btnSelectEquip, btnRateEvent, btnResetAll;
 
+    /**
+     * Inflates the options menu for the activity.
+     *
+     * @param menu The options menu in which items are placed.
+     * @return true for the menu to be displayed.
+     */
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.menu, menu);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_xml, menu);
         return true;
     }
 
+    /**
+     * Handles action bar item clicks.
+     *
+     * @param item The menu item that was selected.
+     * @return boolean Return false to allow normal menu processing to proceed.
+     */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        if (item.getItemId() == R.id.action_credits)
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_credits) {
             Intent intent = new Intent(this, Credits.class);
             startActivity(intent);
             return true;
@@ -52,9 +61,13 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Initializes the activity, binds UI components, and sets up event listeners.
+     *
+     * @param savedInstanceState Bundle containing the activity's previously frozen state.
+     */
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -65,7 +78,7 @@ public class MainActivity extends AppCompatActivity
         btnResetAll = findViewById(R.id.btn4);
 
         parentLayout = findViewById(R.id.main);
-        textEventSummary = findViewById(R.id.tvSummary);
+        textEventSummary = findViewById(R.id.tvTitle);
 
         // Set Click Listeners
         btnSelectType.setOnClickListener(v -> openTypeSelectionDialog());
@@ -75,11 +88,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     /**
-     * Opens a custom dialog to confirm resetting the event plan.
+     * Opens a custom dialog to confirm resetting the event planning data.
      */
-    private void openResetConfirmationDialog()
-    {
-        View dialogView = getLayoutInflater().inflate(R.layout.dialog_btn4, null);
+    private void openResetConfirmationDialog() {
+        View dialogView = getLayoutInflater().inflate(R.layout.btn4_xml, null);
         Button confirmAction = dialogView.findViewById(R.id.btnYesReset);
         Button cancelAction = dialogView.findViewById(R.id.btnNoReset);
 
@@ -100,11 +112,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     /**
-     * Opens a custom dialog for user rating and organizer name input.
+     * Opens a custom dialog for entering an organizer's name and event rating.
      */
-    private void openRatingAndFeedbackDialog()
-    {
-        View dialogView = getLayoutInflater().inflate(R.layout.dialog_btn3, null);
+    private void openRatingAndFeedbackDialog() {
+        View dialogView = getLayoutInflater().inflate(R.layout.btn3_xml, null);
         EditText inputOrganizer = dialogView.findViewById(R.id.etOrganizer);
         RatingBar ratingBar = dialogView.findViewById(R.id.rbStars);
         Button submitData = dialogView.findViewById(R.id.btnSubmitRating);
@@ -130,11 +141,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     /**
-     * Opens a custom dialog with checkboxes to select event equipment.
+     * Opens a custom dialog with checkboxes to select required event equipment.
      */
-    private void openEquipmentSelectionDialog()
-    {
-        View dialogView = getLayoutInflater().inflate(R.layout.dialog_btn2, null);
+    private void openEquipmentSelectionDialog() {
+        View dialogView = getLayoutInflater().inflate(R.layout.btn2_xml, null);
         CheckBox chkChairs = dialogView.findViewById(R.id.cbChairs);
         CheckBox chkGenerator = dialogView.findViewById(R.id.cbGenerator);
         CheckBox chkLighting = dialogView.findViewById(R.id.cbLighting);
@@ -172,11 +182,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     /**
-     * Opens a custom dialog with image buttons to select the type of event.
+     * Opens a custom dialog with ImageButtons to select the type of municipal event.
      */
-    private void openTypeSelectionDialog()
-    {
-        View dialogView = getLayoutInflater().inflate(R.layout.dialog_btn1, null);
+    private void openTypeSelectionDialog() {
+        View dialogView = getLayoutInflater().inflate(R.layout.btn1_xml, null);
 
         ImageButton imgPool = dialogView.findViewById(R.id.btn1Alart1);
         ImageButton imgShow = dialogView.findViewById(R.id.btn2Alart1);
