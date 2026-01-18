@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Chairs and Tables"
+        android:text="Chairs"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
@@ -32,7 +32,7 @@
         android:id="@+id/cbGenerator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Power Generator"
+        android:text="Generator"
         app:layout_constraintStart_toStartOf="@+id/cbChairs"
         app:layout_constraintTop_toBottomOf="@+id/cbChairs" />
 
@@ -40,7 +40,7 @@
         android:id="@+id/cbLighting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Professional Lighting"
+        android:text="Lighting"
         app:layout_constraintStart_toStartOf="@+id/cbGenerator"
         app:layout_constraintTop_toBottomOf="@+id/cbGenerator" />
 
@@ -48,7 +48,7 @@
         android:id="@+id/cbDrinks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cold Drinks &amp; Catering"
+        android:text="Drinks"
         app:layout_constraintStart_toStartOf="@+id/cbLighting"
         app:layout_constraintTop_toBottomOf="@+id/cbLighting" />
 
@@ -56,7 +56,7 @@
         android:id="@+id/cbMusic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sound System &amp; Music"
+        android:text="Music"
         app:layout_constraintStart_toStartOf="@+id/cbDrinks"
         app:layout_constraintTop_toBottomOf="@+id/cbDrinks" />
 
